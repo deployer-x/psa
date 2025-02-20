@@ -1,0 +1,6 @@
+
+<script>
+    const segmentCount = 1;
+    sessionStorage.redirect = location.href.split("/").slice(0, 1 + segmentCount).join("/");
+    location.replace(location.href.replace(location.href, "/psa/"));
+</script>
