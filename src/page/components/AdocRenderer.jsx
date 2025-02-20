@@ -45,7 +45,7 @@ const AdocRenderer = () => {
         className="adoc-container"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
-      <button onClick={() => navigate('../editer/doc.adoc')} className='camuflado'>Bienvenido!!</button>
+      <button onClick={() => navigate('../editer/doc.adoc')} className='camuflado'>Bienvenido!!!</button>
     </div>
   );
 };
