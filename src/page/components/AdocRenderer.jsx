@@ -7,6 +7,7 @@ import './styles/adocRenderer.css';
 const asciidoctor = Asciidoctor();
 
 const AdocRenderer = () => {
+  const [contClick, setContClick] = useState(0);
   const { adocPath } = useParams();
   const [htmlContent, setHtmlContent] = useState('Cargando...');
   const [error, setError] = useState(null);
@@ -35,6 +36,16 @@ const AdocRenderer = () => {
     navigate('../editer/doc.adoc');
   };
 
+  const handleClick = () => {
+
+    setContClick(contClick + 1)
+    console.log(contClick)
+    if (contClick === 5) {
+      navigate('../editer/doc.adoc');
+    }
+
+  };
+
   if (error) {
     return <div className="error">{error} No carga...</div>;
   }
@@ -45,7 +56,7 @@ const AdocRenderer = () => {
         className="adoc-container"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
-      <button onClick={() => navigate('../editer/doc.adoc')} className='camuflado'>Bienvenido!!</button>
+      <button onClick={handleClick} className='camuflado'>✞</button>
     </div>
   );
 };
