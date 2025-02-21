@@ -135,11 +135,12 @@
   transform: scale(1.05); /* Efecto sutil al pasar el mouse */
 }
 .camuflado{
-  margin-bottom: -30px;
-  margin-top: -30px;
-  margin-left: -20px;
+  margin-bottom: 1px;
+  margin-top: -100px;
+  margin-left: 4px;
   font-size: 20px;
   color:black;
+  padding: 1px 1px;
 }
 
 
