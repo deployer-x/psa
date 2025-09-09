@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Asciidoctor from 'asciidoctor';
 import { useParams, useNavigate } from 'react-router-dom';
-import { supabase } from '../../supabase';
+//import { supabase } from '../../supabase';
+import { db } from "./../../firebase"; 
+import { doc, getDoc } from "firebase/firestore";
 import './styles/adocRenderer.css';
 
 const asciidoctor = Asciidoctor();
@@ -17,11 +19,13 @@ const AdocRenderer = () => {
   useEffect(() => {
     const fetchAdocFromDB = async () => {
       try {
-        const { data, error } = await supabase.from('documento').select('*');
+        //const { data, error } = await supabase.from('documento').select('*');
+        const docRef = doc(db, "san-antonio-blog", "san-antonio-blog");
+        const docSnap = await getDoc(docRef);
         if (error) throw error;
 
-        const adocContent = data[0].texto;
-
+        //const adocContent = data[0].texto;
+        const adocContent = docSnap.data().documento;
         const html = asciidoctor.convert(adocContent);
         setHtmlContent(html);
       } catch (err) {
